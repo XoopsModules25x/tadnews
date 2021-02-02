@@ -1,6 +1,7 @@
 <?php
 //global
-include_once 'global.php';
+require_once __DIR__ . '/global.php';
+xoops_loadLanguage('blocks', 'system');
 define('_MB_TADNEWS_CONTENT_BLOCK_EDIT_BITEM1', '一橫列放幾則新聞');
 
 define('_MB_TADNEWS_RE_EDIT_BITEM0', '列出回應數');
@@ -17,7 +18,7 @@ define('_MB_TADNEWS_NO', '否');
 
 define('_MB_TADNEWS_NEWS_TITLE', '文章標題');
 define('_MB_TADNEWS_NEWS_CATE', '所屬分類');
-define('_MB_TADNEWS_COUNTER', '人氣');
+define('_MB_TADNEWS_COUNTER', '點閱數');
 define('_MB_TADNEWS_SHOW_ALL', '全文');
 
 define('_MB_TADNEWS_SUBMIT', '送出');
@@ -79,7 +80,7 @@ define('_MB_TADNEWS_MARQUEE_DIRECTION_LEFT', '←');
 define('_MB_TADNEWS_MARQUEE_DIRECTION_RIGHT', '→');
 define('_MB_TADNEWS_MARQUEE_DIRECTION_UP', '↑');
 define('_MB_TADNEWS_MARQUEE_DIRECTION_DOWN', '↓');
-define('_MB_TADNEWS_MARQUEE_DIRECTION_DESC', '「上下」的速度約 5000 左右；「左右」的速度約 15000 左右（高度也要調整為 height:1em;）');
+define('_MB_TADNEWS_MARQUEE_DIRECTION_DESC', '「上下」的速度約 5000 左右；「左右」的速度約 15000 左右（高度也要調整為 height:1rem;）');
 define('_MB_TADNEWS_MARQUEE_DURATION', '速度（數字越大越慢）');
 define('_MB_TADNEWS_MARQUEE_CSS', 'CSS設定（可不設）');
 define('_MB_TADNEWS_MARQUEE_CSS_DEFAULT', '目前CSS預設值：');
@@ -95,15 +96,11 @@ define('_MB_TADNEWS_PAGE_EDIT_BITEM2', '文字大小');
 define('_MB_TADNEWS_COVERED_OPT1', '一個橫列放幾篇文章？');
 define('_MB_TADNEWS_COVERED_OPT2', '共幾個橫列？');
 define('_MB_TADNEWS_AJAX_ERROR', '無法載入資料。');
-define('_MB_TADNEWS_PAGE_PANEL_COLOR', '選擇面板顏色');
-define('_MB_TADNEWS_PAGE_PANEL_NO', '不使用');
-define('_MB_TADNEWS_PAGE_PANEL_DEFAULT', '淺灰');
-define('_MB_TADNEWS_PAGE_PANEL_PRIMARY', '深藍');
-define('_MB_TADNEWS_PAGE_PANEL_SUCCESS', '淺綠');
-define('_MB_TADNEWS_PAGE_PANEL_INFO', '淺藍');
-define('_MB_TADNEWS_PAGE_PANEL_WARNING', '淺黃');
-define('_MB_TADNEWS_PAGE_PANEL_DANGER', '粉紅');
+define('_MB_TADNEWS_PAGE_BG_COLOR', '選擇標題底色');
+define('_MB_TADNEWS_PAGE_FONT_COLOR', '選擇標題顏色');
 define('_MB_TADNEWS_PAGE_SUB_CATE', '是否列出底下分類？');
+define('_MB_TADNEWS_PAGE_BG_CSS', '標題背景樣式');
+define('_MB_TADNEWS_PAGE_FONT_CSS', '標題文字樣式');
 
 define('_MB_TADNEWS_TAB_NEWS_DISPLAY_TYPE', '呈現類型');
 define('_MB_TADNEWS_TAB_NEWS_DEFAULT', '橫向頁籤');
@@ -125,3 +122,6 @@ define('_MB_TADNEWS_BAR_KEYWORD', '關鍵字');
 define('_MB_TADNEWS_BAR_DATE', '日期範圍');
 define('_MB_TADNEWS_BAR_START_DAY', '>=此日的公告');
 define('_MB_TADNEWS_BAR_END_DAY', '<=此日的公告');
+
+define('_MB_TADNEWS_SEARCHBAR', '是否加入新聞篩選工具？');
+define('_MB_TADNEWS_TAB_FONT_SIZE', '頁籤標題文字大小');

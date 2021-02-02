@@ -1,6 +1,7 @@
 <?php
 
-include_once 'global.php';
+require_once __DIR__ . '/global.php';
+xoops_loadLanguage('blocks', 'system');
 define('_MB_TADNEWS_CONTENT_BLOCK_EDIT_BITEM1', 'How many columns in a row?');
 
 define('_MB_TADNEWS_RE_EDIT_BITEM0', 'Numbers');
@@ -91,8 +92,11 @@ define('_MB_TADNEWS_PAGE_EDIT_BITEM2', 'Font size:');
 define('_MB_TADNEWS_COVERED_OPT1', 'How many columns in a row?');
 define('_MB_TADNEWS_COVERED_OPT2', 'How many rows?');
 define('_MB_TADNEWS_AJAX_ERROR', 'Unable to load data.');
-define('_MB_TADNEWS_PAGE_USE_PANEL', 'Do you want to use the panel?');
+define('_MB_TADNEWS_PAGE_BG_COLOR', 'Select title background color');
+define('_MB_TADNEWS_PAGE_FONT_COLOR', 'Select title color');
 define('_MB_TADNEWS_PAGE_SUB_CATE', 'Do you want to list the sub-categories?');
+define('_MB_TADNEWS_PAGE_FONT_CSS', 'Title style');
+define('_MB_TADNEWS_PAGE_BG_CSS', 'Title background style');
 
 define('_MB_TADNEWS_TAB_NEWS_DISPLAY_TYPE', 'Display Type');
 define('_MB_TADNEWS_TAB_NEWS_DEFAULT', 'Tabs');
@@ -109,3 +113,6 @@ define('_MB_TADNEWS_LATEST_NEWS_TAB', 'latest news');
 define('_MB_TADNEWS_PAGE_SHOW_TITLE', 'Show category headings?');
 define('_MB_TADNEWS_BAR_START_DAY', 'News >= this date');
 define('_MB_TADNEWS_BAR_END_DAY', 'News <= this date');
+
+define('_MB_TADNEWS_SEARCHBAR', 'Do you join a news search tool?');
+define('_MB_TADNEWS_TAB_FONT_SIZE', 'Tab title size');

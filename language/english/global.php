@@ -1,10 +1,9 @@
 <?php
+xoops_loadLanguage('main', 'tadtools');
 define('_TADNEWS_NAME', 'ALL News');
 define('_TADNEWS_ALWAYS_TOP', 'Sticky');
 define('_TADNEWS_TODAY_NEWS', 'Today');
 define('_TADNEWS_MORE', 'Read More');
-define('_TADNEWS_EDIT', 'Edit');
-define('_TADNEWS_DEL', 'Delete');
 define('_TADNEWS_ADD', 'Post');
 define('_TADNEWS_HOT', 'Count:');
 define('_TADNEWS_BATCH_TOOLS', 'Batch tools');
@@ -34,3 +33,4 @@ define('_TADNEWS_CREAT_FIRST_CATE', 'Creat a sub-category');
 define('_TADNEWS_CREAT_NEWS_CATE', 'Creat a sub-category under left category');
 define('_TADNEWS_PREFIX_TAG', 'Prefix');
 define('_TADNEWS_NEED_LOGIN', 'Need login, and only "%s" groups can read.');
+define('_TADNEWS_TABS_SORT', 'Change tab ordering');

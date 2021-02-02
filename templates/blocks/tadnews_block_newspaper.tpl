@@ -1,39 +1,46 @@
 <{if $block.option==""}>
-  <{$smarty.const._MB_TADNEWS_NO_NEWSPAPER}>
+    <{$smarty.const._MB_TADNEWS_NO_NEWSPAPER}>
 <{else}>
-  <div class="row">
+<{$block.counter}>
     <form action="<{$xoops_url}>/modules/tadnews/email.php" method="post">
-      <{$block.counter}>
 
-      <div class="row">
-        <label class="col-sm-4"><{$smarty.const._MB_TADNEWS_TITLE}></label>
-        <div class="col-sm-8">
-          <select name="nps_sn" class="form-control" id="newspaper" placeholder="<{$smarty.const._MB_TADNEWS_TITLE}>">
-            <{foreach item=opt from=$block.option}>
-            <option value="<{$opt.value}>"><{$opt.text}></option>
-            <{/foreach}>
-          </select>
+        <div class="form-group row">
+            <label class="col-md-4 control-label col-form-label text-md-right" for="newspaper"><{$smarty.const._MB_TADNEWS_TITLE}></label>
+            <div class="col-md-8">
+                <select name="nps_sn" class="form-control" id="newspaper" placeholder="<{$smarty.const._MB_TADNEWS_TITLE}>">
+                    <{foreach item=opt from=$block.option}>
+                    <option value="<{$opt.value}>"><{$opt.text}></option>
+                    <{/foreach}>
+                </select>
+            </div>
         </div>
-      </div>
 
-
-      <div class="row">
-        <label class="col-sm-4"><{$smarty.const._MB_TADNEWS_EMAIL}></label>
-        <div class="col-sm-8">
-          <input type="text" name="newspaper_email" id="newspaper_email" placeholder="<{$smarty.const._MB_TADNEWS_EMAIL}>" value="<{$block.email}>" class="form-control">
+        <div class="form-group row">
+            <label class="col-md-4 control-label col-form-label text-md-right" for="newspaper_email"><{$smarty.const._MB_TADNEWS_EMAIL}></label>
+            <div class="col-md-8">
+                <input type="text" name="newspaper_email" id="newspaper_email" placeholder="<{$smarty.const._MB_TADNEWS_EMAIL}>" value="<{$block.email}>" class="form-control">
+            </div>
         </div>
-      </div>
 
-
-      <div class="row">
-        <div class="col-sm-8">
-          <label class="radio-inline"><input type="radio" name="mode" value="add" checked><{$smarty.const._MB_TADNEWS_ORDER}></label>
-          <label class="radio-inline"><input type="radio" name="mode" value="del"><{$smarty.const._MB_TADNEWS_CANCEL}></label>
+        <div class="form-group row">
+            <div class="col-md-8">
+                <div class="form-check-inline radio-inline">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="radio" name="mode" value="add" checked>
+                        <{$smarty.const._MB_TADNEWS_ORDER}>
+                    </label>
+                </div>
+                <div class="form-check-inline radio-inline">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="radio" name="mode" value="del">
+                        <{$smarty.const._MB_TADNEWS_CANCEL}>
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <{$XOOPS_TOKEN}>
+            <button type="submit" class="btn btn-info"><{$smarty.const._MB_TADNEWS_SUBMIT}></button>
+            </div>
         </div>
-        <div class="col-sm-4">
-          <button type="submit" class="btn btn-info"><{$smarty.const._MB_TADNEWS_SUBMIT}></button>
-        </div>
-      </div>
     </form>
-  </div>
 <{/if}>

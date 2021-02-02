@@ -1,6 +1,5 @@
 <?php
-include_once XOOPS_ROOT_PATH . "/modules/tadtools/language/{$xoopsConfig['language']}/modinfo_common.php";
-//Version XXX
+xoops_loadLanguage('modinfo_common', 'tadtools');
 
 define('_MI_TADNEWS_ADMIN_HOME', 'Home');
 define('_MI_TADNEWS_ADMIN_HOME_DESC', 'Back to Home');
@@ -49,7 +48,7 @@ define('_MI_TADNEWS_CATE_SHOW_MODE', '<span style="font-weight: bold;">Performin
 define('_MI_TADNEWS_CATE_SHOW_MODE_DESC', 'Digest(Default) or News titles (faster, clear)');
 
 define('_MI_TADNEWS_SHOW_BB', '<span style="font-weight: bold;">"BB Code" available?</span>');
-define('_MI_TADNEWS_SHOW_BB_DESC', '"No" is default. Old news modules use BB Code to set the font style.<br/>For example: color, size. Choose "Yes" if you have news content from old modules.');
+define('_MI_TADNEWS_SHOW_BB_DESC', '"No" is default. Old news modules use BB Code to set the font style.<br>For example: color, size. Choose "Yes" if you have news content from old modules.');
 
 define('_MI_TADNEWS_CATE_PIC_WIDTH', '<span style="font-weight: bold;">Width of Category icon</span>');
 define('_MI_TADNEWS_CATE_PIC_WIDTH_DESC', 'Default width of uploaded category icons.');
@@ -108,11 +107,14 @@ define('_MI_TADNEWS_COVERED_DESC', 'News with cover image');
 define('_MI_TADNEWS_PAGE_LIST', 'List custom pages');
 define('_MI_TADNEWS_PAGE_LIST_DESC', 'List custom pages');
 
+define('_MI_TADNEWS_PAGE_MENU', 'Custom pages menu');
+define('_MI_TADNEWS_PAGE_MENU_DESC', 'Custom pages menu');
+
 define('_MI_TADNEWS_USE_TOP_GROUP', 'Which groups can use "sticky" feature');
 define('_MI_TADNEWS_USE_TOP_GROUP_DESC', 'Which groups can use "sticky" feature');
 
 define('_MI_TADNEWS_DIRNAME', basename(dirname(dirname(__DIR__))));
-define('_MI_TADNEWS_HELP_HEADER', __DIR__ . '/help/helpheader.html');
+define('_MI_TADNEWS_HELP_HEADER', __DIR__ . '/help/helpheader.tpl');
 define('_MI_TADNEWS_BACK_2_ADMIN', 'Back to Administration of ');
 
 //help
@@ -124,3 +126,15 @@ define('_MI_TADNEWS_TAG_NEWS', 'Tag News');
 define('_MI_TADNEWS_TAG_NEWS_DESC', 'Tag News');
 define('_MI_TADNEWS_TOP_MAX_DAY', 'Maximum number of days top news');
 define('_MI_TADNEWS_TOP_MAX_DAY_DESC', 'Top News limit the number of days?');
+
+define('_MI_TADNEWS_UPLOAD_DENY', 'No file extensions allowed to upload');
+define('_MI_TADNEWS_UPLOAD_DENY_DESC', 'Please separate by semicolon, e.g. "doc;docx;doc;xls;xlsx"');
+
+define('_MI_SHOW_NEXT_BTN', 'Whether to display the contextual navigation tool below');
+define('_MI_SHOW_NEXT_BTN_DESC', 'Whether or not to show the previous and next article navigation tools at the bottom when viewing an article');
+
+define('_MI_SHOW_RSS', 'Whether to show RSS link information');
+define('_MI_SHOW_RSS_DESC', 'Whether to show RSS links at the bottom of the module home page');
+
+define('_MI_USE_TABLE_SHADOW', 'Whether to use table shading');
+define('_MI_USE_TABLE_SHADOW_DESC', 'Whether to add shading to the news table');

@@ -1,65 +1,66 @@
 <?php
+use Xmf\Request;
+use XoopsModules\Tadtools\TadUpFiles;
+use XoopsModules\Tadtools\Utility;
+
 /*-----------引入檔案區--------------*/
-include_once "header.php";
-$xoopsOption['template_main'] = "tadnews_my_news.tpl";
-include_once XOOPS_ROOT_PATH . "/header.php";
+$GLOBALS['xoopsOption']['template_main'] = 'tadnews_my_news.tpl';
+require_once __DIR__ . '/header.php';
+require_once XOOPS_ROOT_PATH . '/header.php';
 /*-----------function區--------------*/
 
 //列出某人所有新聞
 function list_tad_my_news()
 {
-    global $xoopsModuleConfig, $xoopsTpl, $interface_menu, $xoopsUser, $tadnews;
-
+    global $xoopsModuleConfig, $xoopsTpl, $interface_menu, $xoopsUser, $Tadnews;
+    if (!$xoopsUser) {
+        redirect_header('index.php', 3, _TAD_PERMISSION_DENIED);
+    }
     $uid = $xoopsUser->uid();
-    $tadnews->set_show_enable(0);
-    $tadnews->set_view_uid($uid);
-    $tadnews->set_news_kind($kind);
-    $tadnews->set_summary(0);
-    $tadnews->set_show_mode("list");
-    $tadnews->set_admin_tool(true);
-    $tadnews->set_show_num($xoopsModuleConfig['show_num']);
+    $Tadnews->set_show_enable(0);
+    $Tadnews->set_view_uid($uid);
+    $Tadnews->set_news_kind($kind);
+    $Tadnews->set_summary(0);
+    $Tadnews->set_show_mode('list');
+    $Tadnews->set_admin_tool(true);
+    $Tadnews->set_show_num($xoopsModuleConfig['show_num']);
 
     if (!empty($the_ncsn)) {
-        $tadnews->set_view_ncsn($the_ncsn);
+        $Tadnews->set_view_ncsn($the_ncsn);
     }
-    $tadnews->get_news();
+    $Tadnews->get_news();
 
-    $xoopsTpl->assign("toolbar", toolbar_bootstrap($interface_menu));
-
+    $xoopsTpl->assign('toolbar', Utility::toolbar_bootstrap($interface_menu));
 }
 
 /*-----------執行動作判斷區----------*/
-$op = (empty($_REQUEST['op'])) ? "" : $_REQUEST['op'];
-
-$nsn    = (isset($_REQUEST['nsn'])) ? intval($_REQUEST['nsn']) : 0;
-$ncsn   = (isset($_REQUEST['ncsn'])) ? intval($_REQUEST['ncsn']) : 0;
-$fsn    = (isset($_REQUEST['fsn'])) ? intval($_REQUEST['fsn']) : 0;
-$uid    = (isset($_REQUEST['uid'])) ? intval($_REQUEST['uid']) : "";
-$kind   = (empty($_REQUEST['kind'])) ? "" : $_REQUEST['kind'];
-$tag_sn = (isset($_REQUEST['tag_sn'])) ? intval($_REQUEST['tag_sn']) : "";
+$op = Request::getString('op');
+$kind = Request::getString('kind');
+$ncsn = Request::getInt('ncsn');
+$nsn = Request::getInt('nsn');
+$fsn = Request::getInt('fsn');
+$uid = Request::getInt('uid');
+$files_sn = Request::getInt('files_sn');
+$tag_sn = Request::getInt('tag_sn');
 
 switch ($op) {
-
     //下載檔案
-    case "tufdl":
-        $files_sn = isset($_GET['files_sn']) ? intval($_GET['files_sn']) : "";
-        $TadUpFiles->add_file_counter($files_sn, $hash = false);
+    case 'tufdl':
+        $TadUpFiles = new TadUpFiles('tadnews');
+        $TadUpFiles->add_file_counter($files_sn, false);
         exit;
-        break;
 
     //刪除資料
-    case "delete_tad_news":
-        $tadnews->delete_tad_news($nsn);
-        header("location: " . $_SERVER['PHP_SELF']);
+    case 'delete_tad_news':
+        $Tadnews->delete_tad_news($nsn);
+        header('location: ' . $_SERVER['PHP_SELF']);
         exit;
-        break;
 
     //已經閱讀
-    case "have_read":
+    case 'have_read':
         have_read($nsn, $uid);
-        header("location: " . $_SERVER['PHP_SELF'] . "?nsn=$nsn");
+        header('location: ' . $_SERVER['PHP_SELF'] . "?nsn=$nsn");
         exit;
-        break;
 
     default:
         list_tad_my_news();
@@ -67,5 +68,13 @@ switch ($op) {
 }
 
 /*-----------秀出結果區--------------*/
-include_once XOOPS_ROOT_PATH . '/include/comment_view.php';
-include_once XOOPS_ROOT_PATH . '/footer.php';
+
+$xoopsTpl->assign('now_op', $op);
+$xoopsTpl->assign('toolbar', Utility::toolbar_bootstrap($interface_menu));
+$xoTheme->addStylesheet(XOOPS_URL . '/modules/tadnews/css/module.css');
+if ($xoopsModuleConfig['use_table_shadow']) {
+    $xoTheme->addStylesheet(XOOPS_URL . '/modules/tadnews/css/module2.css');
+}
+$xoTheme->addStylesheet('modules/tadtools/css/iconize.css');
+require_once XOOPS_ROOT_PATH . '/include/comment_view.php';
+require_once XOOPS_ROOT_PATH . '/footer.php';

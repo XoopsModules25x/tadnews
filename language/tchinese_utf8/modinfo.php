@@ -1,7 +1,5 @@
 <?php
-include_once XOOPS_ROOT_PATH . '/modules/tadtools/language/' . $xoopsConfig['language'] . '/modinfo_common.php';
-
-//Version XXX
+xoops_loadLanguage('modinfo_common', 'tadtools');
 
 define('_MI_TADNEWS_ADMIN_HOME', '首頁');
 define('_MI_TADNEWS_ADMIN_HOME_DESC', '回首頁');
@@ -106,14 +104,17 @@ define('_MI_TADNEWS_MARQUEE_DESC', '相當於條列新聞做成跑馬燈之意')
 define('_MI_TADNEWS_COVERED', '圖文集區塊');
 define('_MI_TADNEWS_COVERED_DESC', '以封面圖為主，搭配簡短文字的區塊');
 
-define('_MI_TADNEWS_PAGE_LIST', '自訂頁面選單');
-define('_MI_TADNEWS_PAGE_LIST_DESC', '自訂頁面選單');
+define('_MI_TADNEWS_PAGE_LIST', '自訂頁面列表');
+define('_MI_TADNEWS_PAGE_LIST_DESC', '自訂頁面列表');
+
+define('_MI_TADNEWS_PAGE_MENU', '自訂頁面選單');
+define('_MI_TADNEWS_PAGE_MENU_DESC', '自訂頁面選單');
 
 define('_MI_TADNEWS_USE_TOP_GROUP', '可使用置頂功能的群組');
 define('_MI_TADNEWS_USE_TOP_GROUP_DESC', '可使用置頂功能的群組');
 
 define('_MI_TADNEWS_DIRNAME', basename(dirname(dirname(__DIR__))));
-define('_MI_TADNEWS_HELP_HEADER', __DIR__ . '/help/helpheader.html');
+define('_MI_TADNEWS_HELP_HEADER', __DIR__ . '/help/helpheader.tpl');
 define('_MI_TADNEWS_BACK_2_ADMIN', '管理');
 
 //help
@@ -125,3 +126,15 @@ define('_MI_TADNEWS_TAG_NEWS', '標籤新聞區塊');
 define('_MI_TADNEWS_TAG_NEWS_DESC', '標籤新聞區塊');
 define('_MI_TADNEWS_TOP_MAX_DAY', '置頂日數上限');
 define('_MI_TADNEWS_TOP_MAX_DAY_DESC', '新聞最多可以置頂幾天？');
+
+define('_MI_TADNEWS_UPLOAD_DENY', '不允許上傳的檔案副檔名');
+define('_MI_TADNEWS_UPLOAD_DENY_DESC', '請用分號隔開，例如：「doc;docx;doc;xls;xlsx」');
+
+define('_MI_SHOW_NEXT_BTN', '是否顯示下方上下文導覽工具');
+define('_MI_SHOW_NEXT_BTN_DESC', '觀看文章時，是否要顯示最下面的上一則、下一則的文章導覽工具');
+
+define('_MI_SHOW_RSS', '是否顯示RSS的連結資訊');
+define('_MI_SHOW_RSS_DESC', '是否要在模組首頁下方顯示RSS的連結資訊');
+
+define('_MI_USE_TABLE_SHADOW', '是否使用表格陰影');
+define('_MI_USE_TABLE_SHADOW_DESC', '是否要在新聞表格加入陰影');
